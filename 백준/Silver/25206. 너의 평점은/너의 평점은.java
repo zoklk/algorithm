@@ -11,7 +11,15 @@ import java.util.Map;
 import java.util.StringTokenizer;
 import java.io.IOException;
 
-public class Main{
+public class Main {
+  static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+  static StringTokenizer st;
+
+  static double time;       //학점
+  static double rating;     //평점
+  static double temp_t = 0; //학점 임시합
+  static double temp_r = 0; //평점 임시합합
+
   private static final Map<String, Double> gradeMap = new HashMap<>();
   static {
     gradeMap.put("A+", 4.5);
@@ -27,20 +35,16 @@ public class Main{
   }
 
   public static void main(String[] args) throws IOException{
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    double temp_t = 0;
-    double temp_r = 0;
     for(int i=0; i<20; i++){
-      StringTokenizer st = new StringTokenizer(br.readLine());
+      st = new StringTokenizer(br.readLine());
       st.nextToken();
-      double time = Double.parseDouble(st.nextToken());
-      double rating = gradeMap.get(st.nextToken());
+      time = Double.parseDouble(st.nextToken());
+      rating = gradeMap.get(st.nextToken());
       if(rating >= 0){
         temp_t += time;
         temp_r += time*rating; 
       }
     }
-    double result = temp_r / temp_t;
-    System.out.println(result);
+    System.out.println(temp_r/temp_t);  //printf와 println은 8ms정도의 차이가 발생
   }
 }
