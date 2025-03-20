@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 import java.io.IOException;
 
-public class Main {
+public class Main{
   private static final Map<String, Double> gradeMap = new HashMap<>();
   static {
     gradeMap.put("A+", 4.5);
@@ -34,18 +34,13 @@ public class Main {
       StringTokenizer st = new StringTokenizer(br.readLine());
       st.nextToken();
       double time = Double.parseDouble(st.nextToken());
-      double rating = convert(st.nextToken());
+      double rating = gradeMap.get(st.nextToken());
       if(rating >= 0){
         temp_t += time;
         temp_r += time*rating; 
       }
     }
     double result = temp_r / temp_t;
-    System.out.printf("%f\n",result);
-  }
-
-  private static double convert(String grade){
-    double value = gradeMap.get(grade);
-    return value;
+    System.out.println(result);
   }
 }
