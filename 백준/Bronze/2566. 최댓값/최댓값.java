@@ -8,14 +8,15 @@
 import java.io.*;
 
 public class Main {
-  static int[][] arr = new int[9][9];
   public static void main(String[] args) throws IOException{
     // 1. 9X9 정수 입력받기
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     // 2. 2차원 배열로 파싱
+    String[] token;
+    int[][] arr = new int[9][9];
     for(int i=0; i<9; i++){
-      String[] token = br.readLine().split(" ");
+      token = br.readLine().split(" ");
       for(int j=0; j<9; j++){
         arr[i][j] = Integer.parseInt(token[j]);
       }
