@@ -1,20 +1,4 @@
-// 10867번: 중복 빼고 정렬하기
-// <새롭게 배운 포인트>
-
-// <문제 이해>
-// 1. testcase 100,000이니까 NlogN
-// 2. 입력받은거 mergesort + 중복 제외 출력
-
-// <구체적 예제>
-
-// <단계 나누기>
-// 1. N을 입력받는다.
-// 2. 숫자를 입력받아서 arr에 int로 파싱
-// 3. arr를 정렬한다.
-// 4. for를 이용하여 중복을 제외하고 출력한다.
-
 import java.io.*;
-import java.util.Arrays;
 
 public class Main {
   public static void main(String[] args) throws IOException{
@@ -34,12 +18,15 @@ public class Main {
 
     // 4. for를 이용하여 중복을 제외하고 출력한다.
     int key=-1001;
+    // +) stringBuilder사용
+    StringBuilder sb = new StringBuilder();
     for(int i=0; i<n; i++){
       if(key != arr[i]){
-        System.out.printf("%d ", arr[i]);
+        sb.append(arr[i]).append(" ");
         key=arr[i];
       }
     }
+    System.out.println(sb);
   }
 
   // quick sort 구현
